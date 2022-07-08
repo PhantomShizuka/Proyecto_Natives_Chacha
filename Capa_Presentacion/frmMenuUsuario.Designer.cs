@@ -1,6 +1,6 @@
 ﻿namespace Capa_Presentacion
 {
-    partial class frmMenu
+    partial class frmMenuUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -30,19 +30,11 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAcercade = new FontAwesome.Sharp.IconButton();
-            this.btnEmpleado = new FontAwesome.Sharp.IconButton();
-            this.btnUsuario = new FontAwesome.Sharp.IconButton();
             this.btnIngrediente = new FontAwesome.Sharp.IconButton();
-            this.btnProveedor = new FontAwesome.Sharp.IconButton();
-            this.btnPromocion = new FontAwesome.Sharp.IconButton();
             this.btnProducto = new FontAwesome.Sharp.IconButton();
             this.btnPedido = new FontAwesome.Sharp.IconButton();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnlSubMenu = new System.Windows.Forms.Panel();
@@ -54,6 +46,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSalir = new FontAwesome.Sharp.IconButton();
             this.btSalir = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnPromocion = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,18 +57,12 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(75)))), ((int)(((byte)(2)))));
             this.panel2.Controls.Add(this.btnAcercade);
-            this.panel2.Controls.Add(this.btnEmpleado);
-            this.panel2.Controls.Add(this.btnUsuario);
             this.panel2.Controls.Add(this.btnIngrediente);
-            this.panel2.Controls.Add(this.btnProveedor);
             this.panel2.Controls.Add(this.btnPromocion);
             this.panel2.Controls.Add(this.btnProducto);
             this.panel2.Controls.Add(this.btnPedido);
             this.panel2.Controls.Add(this.panel12);
-            this.panel2.Controls.Add(this.panel8);
-            this.panel2.Controls.Add(this.panel11);
             this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.panel5);
@@ -108,54 +96,6 @@
             this.btnAcercade.UseVisualStyleBackColor = true;
             this.btnAcercade.Click += new System.EventHandler(this.btnAcercade_Click);
             // 
-            // btnEmpleado
-            // 
-            this.btnEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmpleado.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnEmpleado.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnEmpleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleado.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleado.ForeColor = System.Drawing.Color.White;
-            this.btnEmpleado.IconChar = FontAwesome.Sharp.IconChar.DriversLicense;
-            this.btnEmpleado.IconColor = System.Drawing.Color.White;
-            this.btnEmpleado.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEmpleado.IconSize = 40;
-            this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.Location = new System.Drawing.Point(10, 302);
-            this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Size = new System.Drawing.Size(185, 35);
-            this.btnEmpleado.TabIndex = 3;
-            this.btnEmpleado.Text = "Empleados";
-            this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEmpleado.UseVisualStyleBackColor = true;
-            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
-            // 
-            // btnUsuario
-            // 
-            this.btnUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnUsuario.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnUsuario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuario.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnUsuario.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnUsuario.IconColor = System.Drawing.Color.White;
-            this.btnUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUsuario.IconSize = 40;
-            this.btnUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuario.Location = new System.Drawing.Point(10, 260);
-            this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(185, 35);
-            this.btnUsuario.TabIndex = 3;
-            this.btnUsuario.Text = "Usuarios";
-            this.btnUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUsuario.UseVisualStyleBackColor = true;
-            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
-            // 
             // btnIngrediente
             // 
             this.btnIngrediente.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -171,7 +111,7 @@
             this.btnIngrediente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnIngrediente.IconSize = 40;
             this.btnIngrediente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngrediente.Location = new System.Drawing.Point(10, 219);
+            this.btnIngrediente.Location = new System.Drawing.Point(10, 221);
             this.btnIngrediente.Name = "btnIngrediente";
             this.btnIngrediente.Size = new System.Drawing.Size(185, 35);
             this.btnIngrediente.TabIndex = 3;
@@ -179,54 +119,6 @@
             this.btnIngrediente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIngrediente.UseVisualStyleBackColor = true;
             this.btnIngrediente.Click += new System.EventHandler(this.btnIngrediente_Click);
-            // 
-            // btnProveedor
-            // 
-            this.btnProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProveedor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnProveedor.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnProveedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedor.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnProveedor.IconChar = FontAwesome.Sharp.IconChar.TruckField;
-            this.btnProveedor.IconColor = System.Drawing.Color.White;
-            this.btnProveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProveedor.IconSize = 40;
-            this.btnProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedor.Location = new System.Drawing.Point(10, 178);
-            this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Size = new System.Drawing.Size(185, 35);
-            this.btnProveedor.TabIndex = 3;
-            this.btnProveedor.Text = "Proveedor";
-            this.btnProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProveedor.UseVisualStyleBackColor = true;
-            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
-            // 
-            // btnPromocion
-            // 
-            this.btnPromocion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPromocion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnPromocion.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnPromocion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnPromocion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.btnPromocion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPromocion.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPromocion.ForeColor = System.Drawing.Color.White;
-            this.btnPromocion.IconChar = FontAwesome.Sharp.IconChar.Percentage;
-            this.btnPromocion.IconColor = System.Drawing.Color.White;
-            this.btnPromocion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPromocion.IconSize = 40;
-            this.btnPromocion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPromocion.Location = new System.Drawing.Point(10, 137);
-            this.btnPromocion.Name = "btnPromocion";
-            this.btnPromocion.Size = new System.Drawing.Size(185, 35);
-            this.btnPromocion.TabIndex = 3;
-            this.btnPromocion.Text = "Promocion";
-            this.btnPromocion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPromocion.UseVisualStyleBackColor = true;
-            this.btnPromocion.Click += new System.EventHandler(this.btnPromocion_Click);
             // 
             // btnProducto
             // 
@@ -243,7 +135,7 @@
             this.btnProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProducto.IconSize = 40;
             this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducto.Location = new System.Drawing.Point(10, 95);
+            this.btnProducto.Location = new System.Drawing.Point(10, 138);
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Size = new System.Drawing.Size(185, 35);
             this.btnProducto.TabIndex = 3;
@@ -266,7 +158,7 @@
             this.btnPedido.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPedido.IconSize = 40;
             this.btnPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedido.Location = new System.Drawing.Point(10, 54);
+            this.btnPedido.Location = new System.Drawing.Point(10, 97);
             this.btnPedido.Name = "btnPedido";
             this.btnPedido.Size = new System.Drawing.Size(185, 35);
             this.btnPedido.TabIndex = 3;
@@ -283,50 +175,18 @@
             this.panel12.Size = new System.Drawing.Size(10, 35);
             this.panel12.TabIndex = 2;
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.panel8.Location = new System.Drawing.Point(0, 178);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(10, 35);
-            this.panel8.TabIndex = 2;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.panel11.Location = new System.Drawing.Point(0, 260);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(10, 35);
-            this.panel11.TabIndex = 2;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.panel6.Location = new System.Drawing.Point(0, 95);
+            this.panel6.Location = new System.Drawing.Point(0, 138);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(10, 35);
             this.panel6.TabIndex = 2;
             // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.panel10.Location = new System.Drawing.Point(0, 302);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(10, 35);
-            this.panel10.TabIndex = 2;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.panel7.Location = new System.Drawing.Point(0, 137);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(10, 35);
-            this.panel7.TabIndex = 2;
-            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.panel9.Location = new System.Drawing.Point(0, 219);
+            this.panel9.Location = new System.Drawing.Point(0, 221);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(10, 35);
             this.panel9.TabIndex = 2;
@@ -334,7 +194,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
-            this.panel5.Location = new System.Drawing.Point(0, 54);
+            this.panel5.Location = new System.Drawing.Point(0, 97);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(10, 35);
             this.panel5.TabIndex = 2;
@@ -364,7 +224,7 @@
             // 
             this.lbShowFechaHora.AutoSize = true;
             this.lbShowFechaHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbShowFechaHora.Location = new System.Drawing.Point(583, 8);
+            this.lbShowFechaHora.Location = new System.Drawing.Point(569, 9);
             this.lbShowFechaHora.Name = "lbShowFechaHora";
             this.lbShowFechaHora.Size = new System.Drawing.Size(73, 15);
             this.lbShowFechaHora.TabIndex = 0;
@@ -385,7 +245,7 @@
             // 
             this.lbFechaHora.AutoSize = true;
             this.lbFechaHora.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFechaHora.Location = new System.Drawing.Point(428, 8);
+            this.lbFechaHora.Location = new System.Drawing.Point(419, 8);
             this.lbFechaHora.Name = "lbFechaHora";
             this.lbFechaHora.Size = new System.Drawing.Size(144, 17);
             this.lbFechaHora.TabIndex = 0;
@@ -421,9 +281,9 @@
             this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.Multiply;
             this.btnSalir.IconColor = System.Drawing.Color.Black;
             this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSalir.Location = new System.Drawing.Point(841, 3);
+            this.btnSalir.Location = new System.Drawing.Point(850, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(56, 46);
+            this.btnSalir.Size = new System.Drawing.Size(38, 40);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -442,7 +302,39 @@
             this.btSalir.TabIndex = 0;
             this.btSalir.UseVisualStyleBackColor = true;
             // 
-            // frmMenu
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
+            this.panel7.Location = new System.Drawing.Point(0, 180);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(10, 35);
+            this.panel7.TabIndex = 2;
+            // 
+            // btnPromocion
+            // 
+            this.btnPromocion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPromocion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
+            this.btnPromocion.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
+            this.btnPromocion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
+            this.btnPromocion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(102)))));
+            this.btnPromocion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPromocion.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPromocion.ForeColor = System.Drawing.Color.White;
+            this.btnPromocion.IconChar = FontAwesome.Sharp.IconChar.Percentage;
+            this.btnPromocion.IconColor = System.Drawing.Color.White;
+            this.btnPromocion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPromocion.IconSize = 40;
+            this.btnPromocion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPromocion.Location = new System.Drawing.Point(10, 180);
+            this.btnPromocion.Name = "btnPromocion";
+            this.btnPromocion.Size = new System.Drawing.Size(185, 35);
+            this.btnPromocion.TabIndex = 3;
+            this.btnPromocion.Text = "Promocion";
+            this.btnPromocion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPromocion.UseVisualStyleBackColor = true;
+            this.btnPromocion.Click += new System.EventHandler(this.btnPromocion_Click);
+            // 
+            // frmMenuUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -452,7 +344,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmMenu";
+            this.Name = "frmMenuUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuAdmin";
             this.Load += new System.EventHandler(this.frmMenu_Load);
@@ -477,20 +369,14 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel9;
         private FontAwesome.Sharp.IconButton btnPedido;
         private FontAwesome.Sharp.IconButton btnAcercade;
-        private FontAwesome.Sharp.IconButton btnEmpleado;
-        private FontAwesome.Sharp.IconButton btnUsuario;
         private FontAwesome.Sharp.IconButton btnIngrediente;
-        private FontAwesome.Sharp.IconButton btnProveedor;
-        private FontAwesome.Sharp.IconButton btnPromocion;
         private FontAwesome.Sharp.IconButton btnProducto;
         private FontAwesome.Sharp.IconButton btnSalir;
         private System.Windows.Forms.Label lbUsuario;
+        private FontAwesome.Sharp.IconButton btnPromocion;
+        private System.Windows.Forms.Panel panel7;
     }
 }

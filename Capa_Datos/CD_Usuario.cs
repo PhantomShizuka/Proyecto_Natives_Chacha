@@ -13,15 +13,14 @@ namespace Capa_Datos
     {
         public List<Usuario> Listar()
         {
-            List<Usuario> usuarios = new List<Usuario>();
+            List<Usuario> lista = new List<Usuario>();
 
             using(SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    string query = "Select IdUsuario, IdEmpleado, Contraseña, Estado from Usuario";
-                    SqlCommand cmd = new SqlCommand(query,sqlConnection);
-                    cmd.CommandType = CommandType.Text;
+                    string query = "Select IdUsuario, IdEmpleado, IdRol, Contraseña, Estado from Usuario";
+                    SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
                     
                     sqlConnection.Open();
 
@@ -29,9 +28,11 @@ namespace Capa_Datos
                     {
                         while (reader.Read())
                         {
-                            usuarios.Add(new Usuario()
+                            lista.Add(new Usuario()
                             {
                                 IdUsuario = Convert.ToInt32(reader["IdUsuario"]),
+                                oEmpleado = new CD_Empleado().GetEmpleado(Convert.ToInt32(reader["IdEmpleado"])),
+                                oRol = new CD_Rol().GetRol(Convert.ToInt32(reader["IdRol"])),
                                 Contraseña = reader["Contraseña"].ToString(),
                                 Estado= Convert.ToBoolean(reader["Estado"])
                             });
@@ -40,13 +41,17 @@ namespace Capa_Datos
 
                     sqlConnection.Close();
 
-                }catch (Exception ex)
+                }catch (Exception)
                 {
-                    usuarios = new List<Usuario>();
+                    lista = new List<Usuario>();
                 }
             }
 
-            return usuarios;
+            return lista;
+        }
+        public Usuario GetUsuario(int uIdUsuario)
+        {
+            return new CD_Usuario().Listar().Where(u => u.IdUsuario == uIdUsuario).FirstOrDefault();
         }
     }
 }

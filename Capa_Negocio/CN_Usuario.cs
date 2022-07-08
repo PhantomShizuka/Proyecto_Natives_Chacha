@@ -10,15 +10,13 @@ namespace Capa_Negocio
 {
     public class CN_Usuario
     {
-        private CD_Usuario cD_Usuario = new CD_Usuario();
-
         public List<Usuario> Listar()
         {
-            return cD_Usuario.Listar();
+            return new CD_Usuario().Listar();
         }
-        public bool UsuarioValido(string contraseña, out Usuario ousuario)
+        public bool UsuarioValido(string contraseña, string usuario, out Usuario ousuario)
         {
-            ousuario = new CN_Usuario().Listar().Where(u => u.Contraseña == contraseña).FirstOrDefault();
+            ousuario = new CN_Usuario().Listar().Where(u => u.Contraseña == contraseña && u.oEmpleado.Documento == usuario).FirstOrDefault();
 
             if (ousuario != null)
                 return true;

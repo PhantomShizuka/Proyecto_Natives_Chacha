@@ -3,34 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using Capa_Entidad;
 
 namespace Capa_Datos
 {
-    public class CD_Empleado
+    public class CD_Cliente
     {
-        public List<Empleado> Listar()
+        public List<Cliente> Listar()
         {
-            List<Empleado> lista = new List<Empleado>();
+            List<Cliente> lista = new List<Cliente>();
 
             using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    string query = "Select IdEmpleado, Documento, NombreCompleto, Telefono, Correo, Estado from Empleado"; //Gente escribam bien, por escribir Emplado sufri bastante
-                    SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text }; 
+                    string query = "Select IdCliente, Documento, NombreCompleto, Telefono, Correo, Estado from Cliente";
+                    SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
                     sqlConnection.Open();
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            lista.Add(new Empleado()
+                            lista.Add(new Cliente()
                             {
-                                IdEmpleado = Convert.ToInt32(reader["IdEmpleado"]),
-                                Documento = reader["Documento"].ToString(),
+                                IdCliente = Convert.ToInt32(reader["IdCliente"]),
+                                Documento = reader["Descripcion"].ToString(),
                                 NombreCompleto = reader["NombreCompleto"].ToString(),
                                 Telefono = reader["Telefono"].ToString(),
                                 Correo = reader["Correo"].ToString(),
@@ -43,15 +43,11 @@ namespace Capa_Datos
                 }
                 catch (Exception)
                 {
-                    lista = new List<Empleado>();
+                    lista = new List<Cliente>();
                 }
             }
 
             return lista;
-        }
-        public Empleado GetEmpleado(int uIdEmpleado)
-        {
-            return new CD_Empleado().Listar().Where(e => e.IdEmpleado == uIdEmpleado).FirstOrDefault();
         }
     }
 }

@@ -12,12 +12,12 @@ using Capa_Entidad;
 
 namespace Capa_Presentacion
 {
-    public partial class frmMenu : Form
+    public partial class frmMenuAdmin : Form
     {
         private static Usuario usuarioactual;
         private static IconButton MenuActivo = null;
         private static Form FormActivo = null;
-        public frmMenu(Usuario usuario)
+        public frmMenuAdmin(Usuario usuario)
         {
             usuarioactual = usuario;
             InitializeComponent();  
@@ -25,6 +25,7 @@ namespace Capa_Presentacion
         private void frmMenu_Load(object sender, EventArgs e)
         {
             lbUsuario.Text = usuarioactual.oEmpleado.NombreCompleto;
+            lbShowFechaHora.Text = DateTime.Now.ToString();
         }
 
         private void btnPedido_Click(object sender, EventArgs e)

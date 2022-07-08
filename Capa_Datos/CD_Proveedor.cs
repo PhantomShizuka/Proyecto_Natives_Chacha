@@ -3,35 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using Capa_Entidad;
 
 namespace Capa_Datos
 {
-    public class CD_Empleado
+    public class CD_Proveedor
     {
-        public List<Empleado> Listar()
+        public List<Proveedor> Listar()
         {
-            List<Empleado> lista = new List<Empleado>();
+            List<Proveedor> lista = new List<Proveedor>();
 
             using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    string query = "Select IdEmpleado, Documento, NombreCompleto, Telefono, Correo, Estado from Empleado"; //Gente escribam bien, por escribir Emplado sufri bastante
-                    SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text }; 
+                    string query = "Select IdProveedor, Documento, RazonSocial, Telefono, Correo, Estado from Proveedor";
+                    SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
                     sqlConnection.Open();
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            lista.Add(new Empleado()
+                            lista.Add(new Proveedor()
                             {
-                                IdEmpleado = Convert.ToInt32(reader["IdEmpleado"]),
-                                Documento = reader["Documento"].ToString(),
-                                NombreCompleto = reader["NombreCompleto"].ToString(),
+                                IdProveedor = Convert.ToInt32(reader["IdProveedor"]),
+                                Documento = reader["Descripcion"].ToString(),
+                                RazonSocial = reader["RazonSocial"].ToString(),
                                 Telefono = reader["Telefono"].ToString(),
                                 Correo = reader["Correo"].ToString(),
                                 Estado = Convert.ToBoolean(reader["Estado"])
@@ -43,15 +43,15 @@ namespace Capa_Datos
                 }
                 catch (Exception)
                 {
-                    lista = new List<Empleado>();
+                    lista = new List<Proveedor>();
                 }
             }
 
             return lista;
         }
-        public Empleado GetEmpleado(int uIdEmpleado)
+        public Proveedor GetProveedor(int uIdProveedor)
         {
-            return new CD_Empleado().Listar().Where(e => e.IdEmpleado == uIdEmpleado).FirstOrDefault();
+            return new CD_Proveedor().Listar().Where(e => e.IdProveedor == uIdProveedor).FirstOrDefault();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Capa_Entidad
     public class DetalleProducto
     {
         public int IdDetalleProducto { get; set; }
+        public int IdProducto { get; set; }
         public Insumo oInsumo { get; set; }
         public int Cantidad { get; set; }
         public string FechaRegistro { get; set; }

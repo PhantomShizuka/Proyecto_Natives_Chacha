@@ -10,10 +10,9 @@ namespace Capa_Negocio
 {
     public class CN_Empleado
     {
-        private CD_Empleado cD_Empleado= new CD_Empleado();
         public List<Empleado> Listar()
         {
-            return cD_Empleado.Listar();
+            return new CD_Empleado().Listar();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Capa_Entidad
 {
     public class Producto
     {
-        public int Id { get; set; }
+        public int IdProducto { get; set; }
         public Categoria oCategoria { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
@@ -16,7 +16,7 @@ namespace Capa_Entidad
         public decimal PrecioElaboracion { get; set; }
         public decimal PrecioVenta { get; set; }
         public bool Estado { get; set; }
-        public string FechRegistro { get; set; }
+        public string FechaRegistro { get; set; }
         public List<DetalleProducto> oDetalleProducto { get; set; }
     }
 }

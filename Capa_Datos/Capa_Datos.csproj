@@ -42,8 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CD_Categoria.cs" />
+    <Compile Include="CD_Cliente.cs" />
+    <Compile Include="CD_Compra.cs" />
+    <Compile Include="CD_DetalleCompra.cs" />
+    <Compile Include="CD_DetalleProducto.cs" />
+    <Compile Include="CD_DetalleVenta.cs" />
     <Compile Include="CD_Empleado.cs" />
+    <Compile Include="CD_Insumo.cs" />
+    <Compile Include="CD_Producto.cs" />
+    <Compile Include="CD_Promocion.cs" />
+    <Compile Include="CD_Proveedor.cs" />
+    <Compile Include="CD_Rol.cs" />
     <Compile Include="CD_Usuario.cs" />
+    <Compile Include="CD_Venta.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

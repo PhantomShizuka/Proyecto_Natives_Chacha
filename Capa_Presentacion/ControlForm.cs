@@ -14,20 +14,30 @@ namespace Capa_Presentacion
     {
         public static void Cerrar(Form form, string mensaje)
         {
-            if (MessageBox.Show(mensaje,"Consulta", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MensajePregunta(mensaje))
                 form.Close();
         }
         public static void Exit(string mensaje)
         {
-            if (MessageBox.Show(mensaje, "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MensajePregunta(mensaje))
                 Application.Exit();
         }
         public static void AbrirMenu(Form form, Usuario usuario)
         {
-            frmMenu newform = new frmMenu(usuario);
-            form.Hide();
-            newform.ShowDialog();
-            form.Show();
+            if (usuario.oRol.Descripcion == "Admin")
+            {
+                frmMenuAdmin newform = new frmMenuAdmin(usuario);
+                form.Hide();
+                newform.ShowDialog();
+                form.Show();
+            }
+            else
+            {
+                frmMenuUsuario newform = new frmMenuUsuario(usuario);
+                form.Hide();
+                newform.ShowDialog();
+                form.Show();
+            }           
         }
         public static void AbrirSubMenu(ref Panel pnlSubMenu, ref IconButton MenuActivo,ref Form FormActivo, IconButton menu, Form form)
         {
@@ -49,6 +59,17 @@ namespace Capa_Presentacion
             form.BackColor = Color.FromArgb(217, 160, 91);
             pnlSubMenu.Controls.Add(form);
             form.Show();
+        }
+        public static void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje,"", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        public static bool MensajePregunta(string mensaje)
+        {
+            if (MessageBox.Show(mensaje, "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                return true;
+            else
+                return false;
         }
     }
 }
