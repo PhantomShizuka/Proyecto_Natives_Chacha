@@ -9,45 +9,46 @@ using Capa_Entidad;
 
 namespace Capa_Datos
 {
-    public class CD_Rol
+    public static class CD_Rol
     {
-        public List<Rol> Listar()
+        public static List<Rol> Listar
         {
-            List<Rol> lista = new List<Rol>();
-
-            using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
+            get
             {
-                try
-                {
-                    string query = "Select IdRol, Descripcion from Rol";
-                    SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
-                    sqlConnection.Open();
+                List<Rol> lista = new List<Rol>();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
+                {
+                    try
                     {
-                        while (reader.Read())
+                        string query = "Select IdRol, Descripcion from Rol";
+                        SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
+                        sqlConnection.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            lista.Add(new Rol()
+                            while (reader.Read())
                             {
-                                IdRol = Convert.ToInt32(reader["IdRol"]),
-                                Descripcion = reader["Descripcion"].ToString(),
-                            });
+                                lista.Add(new Rol()
+                                {
+                                    IdRol = Convert.ToInt32(reader["IdRol"]),
+                                    Descripcion = reader["Descripcion"].ToString(),
+                                    oListaPermiso = CD_Permiso.GetListaPermiso(Convert.ToInt32(reader["IdRol"]))
+                                });
+                            }
                         }
+
+                        sqlConnection.Close();
                     }
+                    catch (Exception)
+                    {
+                        lista = new List<Rol>();
+                    }
+                }
 
-                    sqlConnection.Close();
-                }
-                catch (Exception)
-                {
-                    lista = new List<Rol>();
-                }
+                return lista;
             }
-
-            return lista;
         }
-        public Rol GetRol(int uIdRol)
-        {
-            return new CD_Rol().Listar().Where(r => r.IdRol == uIdRol).FirstOrDefault();
-        }
+        public static Rol GetRol(int uIdRol) => Listar.FirstOrDefault(r => r.IdRol == uIdRol);
     }
 }

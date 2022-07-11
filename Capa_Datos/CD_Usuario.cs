@@ -9,49 +9,50 @@ using Capa_Entidad;
 
 namespace Capa_Datos
 {
-    public class CD_Usuario
+    public static class CD_Usuario
     {
-        public List<Usuario> Listar()
+        public static List<Usuario> Listar
         {
-            List<Usuario> lista = new List<Usuario>();
-
-            using(SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
+            get
             {
-                try
-                {
-                    string query = "Select IdUsuario, IdEmpleado, IdRol, Contraseña, Estado from Usuario";
-                    SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
-                    
-                    sqlConnection.Open();
+                List<Usuario> lista = new List<Usuario>();
 
-                    using(SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
+                {
+                    try
                     {
-                        while (reader.Read())
+                        string query = "Select IdUsuario, IdEmpleado, IdRol, Contraseña, Estado from Usuario";
+                        SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
+
+                        sqlConnection.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            lista.Add(new Usuario()
+                            while (reader.Read())
                             {
-                                IdUsuario = Convert.ToInt32(reader["IdUsuario"]),
-                                oEmpleado = new CD_Empleado().GetEmpleado(Convert.ToInt32(reader["IdEmpleado"])),
-                                oRol = new CD_Rol().GetRol(Convert.ToInt32(reader["IdRol"])),
-                                Contraseña = reader["Contraseña"].ToString(),
-                                Estado= Convert.ToBoolean(reader["Estado"])
-                            });
+                                lista.Add(new Usuario()
+                                {
+                                    IdUsuario = Convert.ToInt32(reader["IdUsuario"]),
+                                    oEmpleado = CD_Empleado.GetEmpleado(Convert.ToInt32(reader["IdEmpleado"])),
+                                    oRol = CD_Rol.GetRol(Convert.ToInt32(reader["IdRol"])),
+                                    Contraseña = reader["Contraseña"].ToString(),
+                                    Estado = Convert.ToBoolean(reader["Estado"])
+                                });
+                            }
                         }
+
+                        sqlConnection.Close();
+
                     }
-
-                    sqlConnection.Close();
-
-                }catch (Exception)
-                {
-                    lista = new List<Usuario>();
+                    catch (Exception)
+                    {
+                        lista = new List<Usuario>();
+                    }
                 }
-            }
 
-            return lista;
+                return lista;
+            }
         }
-        public Usuario GetUsuario(int uIdUsuario)
-        {
-            return new CD_Usuario().Listar().Where(u => u.IdUsuario == uIdUsuario).FirstOrDefault();
-        }
+        public static Usuario GetUsuario(int uIdUsuario) => Listar.FirstOrDefault(u => u.IdUsuario == uIdUsuario);
     }
 }

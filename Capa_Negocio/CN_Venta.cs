@@ -8,8 +8,8 @@ using Capa_Entidad;
 
 namespace Capa_Negocio
 {
-    public static class CN_Empleado
+    public static class CN_Venta
     {
-        public static List<Empleado> Listar => CD_Empleado.Listar;
+        public static List<Venta> Listar => CD_Venta.Listar;
     }
 }

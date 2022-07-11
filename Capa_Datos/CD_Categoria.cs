@@ -9,46 +9,47 @@ using Capa_Entidad;
 
 namespace Capa_Datos
 {
-    public class CD_Categoria
+    public static class CD_Categoria
     {
-        public List<Categoria> Listar()
+        public static List<Categoria> Listar
         {
-            List<Categoria> lista = new List<Categoria>();
-
-            using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
+            get
             {
-                try
-                {
-                    string query = "Select IdCategoria, Descripcion, Estado from Categoria";
-                    SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
-                    sqlConnection.Open();
+                List<Categoria> lista = new List<Categoria>();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
+                {
+                    try
                     {
-                        while (reader.Read())
+                        string query = "Select IdCategoria, Descripcion, Estado from Categoria";
+                        SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
+                        sqlConnection.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            lista.Add(new Categoria()
+                            while (reader.Read())
                             {
-                                IdCategoria = Convert.ToInt32(reader["IdCategoria"]),
-                                Descripcion = reader["Descripcion"].ToString(),
-                                Estado = Convert.ToBoolean(reader["Estado"])
-                            });
+                                lista.Add(new Categoria()
+                                {
+                                    IdCategoria = Convert.ToInt32(reader["IdCategoria"]),
+                                    Descripcion = reader["Descripcion"].ToString(),
+                                    Estado = Convert.ToBoolean(reader["Estado"])
+                                });
+                            }
                         }
+
+                        sqlConnection.Close();
                     }
+                    catch (Exception)
+                    {
+                        lista = new List<Categoria>();
+                    }
+                }
 
-                    sqlConnection.Close();
-                }
-                catch (Exception)
-                {
-                    lista = new List<Categoria>();
-                }
+                return lista;
             }
+        }
 
-            return lista;
-        }
-        public Categoria GetCategoria(int uIdCategoria)
-        {
-            return new CD_Categoria().Listar().Where(e => e.IdCategoria == uIdCategoria).FirstOrDefault();
-        }
+        public static Categoria GetCategoria(int uIdCategoria) => Listar.FirstOrDefault(e => e.IdCategoria == uIdCategoria);
     }
 }

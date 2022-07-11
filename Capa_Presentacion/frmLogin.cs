@@ -19,23 +19,28 @@ namespace Capa_Presentacion
             InitializeComponent();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
             ControlForm.Exit("¿Esta seguro de salir del programa?");
         }
 
-        private void btnIngresar_Click(object sender, EventArgs e)
+        private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            if (new CN_Usuario().UsuarioValido(txtContraseña.Text, txtUsuario.Text, out Usuario usuarioactual))
-                ControlForm.AbrirMenu(this, usuarioactual);
+            if (CN_Usuario.UsuarioValido(txtContraseña.Text, txtUsuario.Text, out Usuario usuario, out string mensaje))
+                ControlForm.AbrirMenu(this, usuario);
             else
-                ControlForm.MensajeError("Usuario y/o contraseña incorrecta");
-                
+                ControlForm.MensajeError(mensaje);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.facebook.com/nativeschacha");
+        }
+        public void Limpiar()
+        {
+            txtContraseña.Clear();
+            txtUsuario.Clear();
+            txtContraseña.Focus();
         }
     }
 }

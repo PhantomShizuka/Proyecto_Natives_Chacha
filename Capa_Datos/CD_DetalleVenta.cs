@@ -9,49 +9,50 @@ using Capa_Entidad;
 
 namespace Capa_Datos
 {
-    public class CD_DetalleVenta
+    public static class CD_DetalleVenta
     {
-        public List<DetalleVenta> Listar()
+        public static List<DetalleVenta> Listar
         {
-            List<DetalleVenta> lista = new List<DetalleVenta>();
-
-            using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
+            get
             {
-                try
-                {
-                    string query = "Select IdDetalleVenta, IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal from DetalleVenta";
-                    SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
-                    sqlConnection.Open();
+                List<DetalleVenta> lista = new List<DetalleVenta>();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
+                {
+                    try
                     {
-                        while (reader.Read())
+                        string query = "Select IdDetalleVenta, IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal from DetalleVenta";
+                        SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
+                        sqlConnection.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            lista.Add(new DetalleVenta()
+                            while (reader.Read())
                             {
-                                IdDetalleVenta = Convert.ToInt32(reader["IdDetalleVenta"]),
-                                IdVenta = Convert.ToInt32(reader["IdVenta"]),
-                                oProducto = new CD_Producto().GetProducto(Convert.ToInt32(reader["IdProducto"])),
-                                PrecioVenta = Convert.ToDecimal(reader["PrecioVenta"]),
-                                Cantidad = Convert.ToInt32(reader["Cantidad"]),
-                                SubTotal = Convert.ToDecimal(reader["SubTotal"])
-                            });
+                                lista.Add(new DetalleVenta()
+                                {
+                                    IdDetalleVenta = Convert.ToInt32(reader["IdDetalleVenta"]),
+                                    IdVenta = Convert.ToInt32(reader["IdVenta"]),
+                                    oProducto = CD_Producto.GetProducto(Convert.ToInt32(reader["IdProducto"])),
+                                    PrecioVenta = Convert.ToDecimal(reader["PrecioVenta"]),
+                                    Cantidad = Convert.ToInt32(reader["Cantidad"]),
+                                    SubTotal = Convert.ToDecimal(reader["SubTotal"])
+                                });
+                            }
                         }
+
+                        sqlConnection.Close();
                     }
+                    catch (Exception)
+                    {
+                        lista = new List<DetalleVenta>();
+                    }
+                }
 
-                    sqlConnection.Close();
-                }
-                catch (Exception)
-                {
-                    lista = new List<DetalleVenta>();
-                }
+                return lista;
             }
+        }
 
-            return lista;
-        }
-        public List<DetalleVenta> GetListaDetalleVenta(int uIdVenta)
-        {
-            return new CD_DetalleVenta().Listar().Where(d => d.IdVenta == uIdVenta).ToList();
-        }
+        public static List<DetalleVenta> GetListaDetalleVenta(int uIdVenta) => Listar.Where(d => d.IdVenta == uIdVenta).ToList();
     }
 }

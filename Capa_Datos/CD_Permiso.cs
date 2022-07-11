@@ -9,19 +9,19 @@ using Capa_Entidad;
 
 namespace Capa_Datos
 {
-    public static class CD_Promocion
+    public static class CD_Permiso
     {
-        public static List<Promocion> Listar
+        public static List<Permiso> Listar
         {
             get
             {
-                List<Promocion> lista = new List<Promocion>();
+                List<Permiso> lista = new List<Permiso>();
 
                 using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
                 {
                     try
                     {
-                        string query = "Select IdPromocion, DescuentoFijo, DescuentoPorcentual, Estado, TipoDescuento from Promocion";
+                        string query = "Select IdPermiso, IdRol, NombreMenu from Permiso";
                         SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
                         sqlConnection.Open();
 
@@ -29,13 +29,11 @@ namespace Capa_Datos
                         {
                             while (reader.Read())
                             {
-                                lista.Add(new Promocion()
+                                lista.Add(new Permiso()
                                 {
-                                    IdPromocion = Convert.ToInt32(reader["IdPromocion"]),
-                                    DescuentoFijo = Convert.ToInt32(reader["DescuentoFijo"]),
-                                    DescuentoPorcentual = Convert.ToDecimal(reader["DescuentoPorcentual"]),
-                                    Estado = Convert.ToBoolean(reader["Estado"]),
-                                    TipoDescuento = Convert.ToBoolean(reader["TipoDescuento"])
+                                    IdPermiso = Convert.ToInt32(reader["IdPermiso"]),
+                                    IdRol = Convert.ToInt32(reader["IdRol"]),
+                                    NombreMenu = reader["NombreMenu"].ToString(),
                                 });
                             }
                         }
@@ -44,13 +42,13 @@ namespace Capa_Datos
                     }
                     catch (Exception)
                     {
-                        lista = new List<Promocion>();
+                        lista = new List<Permiso>();
                     }
                 }
 
                 return lista;
             }
         }
-        public static Promocion GetPromocion(int uIdPromocion) => Listar.FirstOrDefault(p => p.IdPromocion == uIdPromocion);
+        public static List<Permiso> GetListaPermiso(int uIdRol) => Listar.Where(p => p.IdRol == uIdRol).ToList();
     }
 }

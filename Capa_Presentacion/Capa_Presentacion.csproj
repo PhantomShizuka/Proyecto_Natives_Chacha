@@ -54,17 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlForm.cs" />
-    <Compile Include="frmMenuUsuario.cs">
+    <Compile Include="frmInsumo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMenuUsuario.Designer.cs">
-      <DependentUpon>frmMenuUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmIngrediente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmIngrediente.Designer.cs">
-      <DependentUpon>frmIngrediente.cs</DependentUpon>
+    <Compile Include="frmInsumo.Designer.cs">
+      <DependentUpon>frmInsumo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAcercade.cs">
       <SubType>Form</SubType>
@@ -78,11 +72,11 @@
     <Compile Include="frmEmpleado.Designer.cs">
       <DependentUpon>frmEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMenuAdmin.cs">
+    <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMenuAdmin.Designer.cs">
-      <DependentUpon>frmMenuAdmin.cs</DependentUpon>
+    <Compile Include="frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -122,14 +116,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAcercade.resx">
+      <DependentUpon>frmAcercade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmpleado.resx">
+      <DependentUpon>frmEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMenuAdmin.resx">
-      <DependentUpon>frmMenuAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMenuUsuario.resx">
-      <DependentUpon>frmMenuUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPedido.resx">
       <DependentUpon>frmPedido.cs</DependentUpon>
@@ -145,8 +142,10 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Capa_Negocio.CN_Empleado.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -169,6 +168,9 @@
       <Project>{7744bcc4-17b0-4e81-b373-5044e6d79d81}</Project>
       <Name>Capa_Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\natives_encabezado.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

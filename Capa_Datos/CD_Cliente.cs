@@ -9,45 +9,48 @@ using Capa_Entidad;
 
 namespace Capa_Datos
 {
-    public class CD_Cliente
+    public static class CD_Cliente
     {
-        public List<Cliente> Listar()
+        public static List<Cliente> Listar
         {
-            List<Cliente> lista = new List<Cliente>();
-
-            using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
+            get
             {
-                try
-                {
-                    string query = "Select IdCliente, Documento, NombreCompleto, Telefono, Correo, Estado from Cliente";
-                    SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
-                    sqlConnection.Open();
+                List<Cliente> lista = new List<Cliente>();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlConnection sqlConnection = new SqlConnection(Conexion.cadena))
+                {
+                    try
                     {
-                        while (reader.Read())
+                        string query = "Select IdCliente, Documento, NombreCompleto, Telefono, Correo, Estado from Cliente";
+                        SqlCommand cmd = new SqlCommand(query, sqlConnection) { CommandType = CommandType.Text };
+                        sqlConnection.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            lista.Add(new Cliente()
+                            while (reader.Read())
                             {
-                                IdCliente = Convert.ToInt32(reader["IdCliente"]),
-                                Documento = reader["Descripcion"].ToString(),
-                                NombreCompleto = reader["NombreCompleto"].ToString(),
-                                Telefono = reader["Telefono"].ToString(),
-                                Correo = reader["Correo"].ToString(),
-                                Estado = Convert.ToBoolean(reader["Estado"])
-                            });
+                                lista.Add(new Cliente()
+                                {
+                                    IdCliente = Convert.ToInt32(reader["IdCliente"]),
+                                    Documento = reader["Descripcion"].ToString(),
+                                    NombreCompleto = reader["NombreCompleto"].ToString(),
+                                    Telefono = reader["Telefono"].ToString(),
+                                    Correo = reader["Correo"].ToString(),
+                                    Estado = Convert.ToBoolean(reader["Estado"])
+                                });
+                            }
                         }
+
+                        sqlConnection.Close();
                     }
+                    catch (Exception)
+                    {
+                        lista = new List<Cliente>();
+                    }
+                }
 
-                    sqlConnection.Close();
-                }
-                catch (Exception)
-                {
-                    lista = new List<Cliente>();
-                }
+                return lista;
             }
-
-            return lista;
         }
     }
 }

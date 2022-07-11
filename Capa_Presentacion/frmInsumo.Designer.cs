@@ -1,6 +1,6 @@
 ﻿namespace Capa_Presentacion
 {
-    partial class frmIngrediente
+    partial class frmInsumo
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "fmrIngrediente";
+            this.Text = "fmrInsumo";
         }
 
         #endregion

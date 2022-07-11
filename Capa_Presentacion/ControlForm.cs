@@ -22,22 +22,23 @@ namespace Capa_Presentacion
             if (MensajePregunta(mensaje))
                 Application.Exit();
         }
-        public static void AbrirMenu(Form form, Usuario usuario)
+        public static void Minimizar(Form form)
         {
-            if (usuario.oRol.Descripcion == "Admin")
-            {
-                frmMenuAdmin newform = new frmMenuAdmin(usuario);
-                form.Hide();
-                newform.ShowDialog();
-                form.Show();
-            }
-            else
-            {
-                frmMenuUsuario newform = new frmMenuUsuario(usuario);
-                form.Hide();
-                newform.ShowDialog();
-                form.Show();
-            }           
+            form.WindowState = FormWindowState.Minimized;
+        }
+        public static void AbrirMenu(frmLogin login, Usuario usuario)
+        {
+            frmMenu menu = new frmMenu(usuario);
+            login.Hide();
+            menu.ShowDialog();
+            login.Limpiar();
+            login.Show();
+        }
+        public static void PermisoSubMenu(ref MenuStrip MenuSubMenu, Usuario usuario)
+        {
+            foreach (IconMenuItem SubMenu in MenuSubMenu.Items)
+                if(!usuario.oRol.oListaPermiso.Any(m => ("btn" + m.NombreMenu) == SubMenu.Name))
+                    SubMenu.Visible = false;
         }
         public static void AbrirSubMenu(ref Panel pnlSubMenu, ref IconButton MenuActivo,ref Form FormActivo, IconButton menu, Form form)
         {

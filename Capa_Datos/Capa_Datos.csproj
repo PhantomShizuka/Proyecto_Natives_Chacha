@@ -50,6 +50,7 @@
     <Compile Include="CD_DetalleVenta.cs" />
     <Compile Include="CD_Empleado.cs" />
     <Compile Include="CD_Insumo.cs" />
+    <Compile Include="CD_Permiso.cs" />
     <Compile Include="CD_Producto.cs" />
     <Compile Include="CD_Promocion.cs" />
     <Compile Include="CD_Proveedor.cs" />
