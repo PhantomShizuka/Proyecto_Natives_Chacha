@@ -69,29 +69,6 @@ namespace Capa_Presentacion
                 });
         }
 
-        private void cbDocumento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Empleado empleado = CN_Empleado.Listar.FirstOrDefault(a => a.Documento == cbDocumento.Text);
-
-            if (empleado != null)
-            {
-                txtNombreCompleto.Text = empleado.NombreCompleto;
-                txtTelefono.Text = empleado.Telefono;
-                txtCorreo.Text = empleado.Correo;
-                idactual = 0;
-            }
-
-            Usuario usuario = CN_Usuario.Listar.FirstOrDefault(u => u.oEmpleado.Documento == cbDocumento.Text);
-
-            if (usuario != null)
-            {
-                txtNombreCompleto.Text = usuario.oEmpleado.NombreCompleto;
-                txtTelefono.Text = usuario.oEmpleado.Telefono;
-                txtCorreo.Text = usuario.oEmpleado.Correo;
-                idactual = usuario.IdUsuario;
-            }
-        }
-
         private void btnguardar_Click(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario()
@@ -128,6 +105,10 @@ namespace Capa_Presentacion
             else
             {
                 DataGridViewRow row = dgvdata.Rows[indice];
+
+                if (usuario.Contraseña == "")
+                    usuario.Contraseña = row.Cells["Contraseña"].Value.ToString();
+
                 if (CN_Usuario.Editar(usuario, out string mensaje) && indice >= 0)
                 {
                     row.Cells["IdUsuario"].Value = usuario.IdUsuario;
@@ -142,7 +123,73 @@ namespace Capa_Presentacion
                 else
                     MessageBox.Show(mensaje);
             }
+        }    
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            if(indice >= 0)
+            {
+                if (idactual != 0 && ControlForm.MensajePregunta("¿Esta seguro de eliminar el usuario?"))
+                {
+                    Usuario usuario = new Usuario() { IdUsuario = idactual };
+
+                    if (CN_Usuario.Eliminar(usuario, out string mensaje))
+                        dgvdata.Rows.RemoveAt(indice);
+                    else
+                        ControlForm.MensajeError(mensaje);
+
+                    Limpiar();
+                }
+            }
+            else
+                ControlForm.MensajeError("Seleccione un usuario para eliminar");
         }
+        private void btnlimpiar_Click(object sender, EventArgs e) => Limpiar();
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+           if (dgvdata.Rows.Count > 0)
+           {
+               foreach (DataGridViewRow row in dgvdata.Rows)
+               {
+                   if (row.Cells[((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString()].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
+                       row.Visible = true;
+                   else
+                       row.Visible = false;
+               }
+           }
+        }
+
+        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
+        {
+           txtbusqueda.Clear();
+
+           foreach (DataGridViewRow row in dgvdata.Rows)
+               row.Visible = true;
+        }
+        private void cbDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Empleado empleado = CN_Empleado.Listar.FirstOrDefault(a => a.Documento == cbDocumento.Text);
+
+            if (empleado != null)
+            {
+                txtNombreCompleto.Text = empleado.NombreCompleto;
+                txtTelefono.Text = empleado.Telefono;
+                txtCorreo.Text = empleado.Correo;
+                idactual = 0;
+            }
+
+            Usuario usuario = CN_Usuario.Listar.FirstOrDefault(u => u.oEmpleado.Documento == cbDocumento.Text);
+
+            if (usuario != null)
+            {
+                txtNombreCompleto.Text = usuario.oEmpleado.NombreCompleto;
+                txtTelefono.Text = usuario.oEmpleado.Telefono;
+                txtCorreo.Text = usuario.oEmpleado.Correo;
+                idactual = usuario.IdUsuario;
+            }
+        }
+
         private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -191,7 +238,7 @@ namespace Capa_Presentacion
                         break;
                     }
                 }
-                    
+
                 foreach (OpcionCombo oc in cbRol.Items)
                 {
                     if (oc.Texto == (dgvdata.Rows[e.RowIndex].Cells["Rol"].Value).ToString())
@@ -199,53 +246,9 @@ namespace Capa_Presentacion
                         cbRol.SelectedIndex = cbRol.Items.IndexOf(oc);
                         break;
                     }
-                }  
-            }
-        }
-
-        private void btneliminar_Click(object sender, EventArgs e)
-        {
-            if(indice >= 0)
-            {
-                if (idactual != 0 && ControlForm.MensajePregunta("¿Esta seguro de eliminar el usuario?"))
-                {
-                    Usuario usuario = new Usuario() { IdUsuario = idactual };
-
-                    if (CN_Usuario.Eliminar(usuario, out string mensaje))
-                        dgvdata.Rows.RemoveAt(indice);
-                    else
-                        ControlForm.MensajeError(mensaje);
-
-                    Limpiar();
                 }
             }
-            else
-                ControlForm.MensajeError("Seleccione un usuario para eliminar");
         }
-
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
-           if (dgvdata.Rows.Count > 0)
-           {
-               foreach (DataGridViewRow row in dgvdata.Rows)
-               {
-                   if (row.Cells[((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString()].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
-                       row.Visible = true;
-                   else
-                       row.Visible = false;
-               }
-           }
-        }
-
-        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
-        {
-           txtbusqueda.Clear();
-
-           foreach (DataGridViewRow row in dgvdata.Rows)
-               row.Visible = true;
-        }
-
-        private void btnlimpiar_Click(object sender, EventArgs e) => Limpiar();
 
         private void Limpiar()
         {
