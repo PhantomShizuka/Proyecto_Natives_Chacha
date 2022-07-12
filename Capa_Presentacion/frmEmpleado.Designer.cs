@@ -235,7 +235,7 @@
             this.btneliminar.IconColor = System.Drawing.Color.White;
             this.btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btneliminar.IconSize = 16;
-            this.btneliminar.Location = new System.Drawing.Point(13, 543);
+            this.btneliminar.Location = new System.Drawing.Point(15, 547);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(192, 23);
             this.btneliminar.TabIndex = 45;
@@ -256,7 +256,7 @@
             this.btnlimpiar.IconColor = System.Drawing.Color.White;
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiar.IconSize = 18;
-            this.btnlimpiar.Location = new System.Drawing.Point(13, 514);
+            this.btnlimpiar.Location = new System.Drawing.Point(15, 518);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(192, 23);
             this.btnlimpiar.TabIndex = 44;
@@ -277,7 +277,7 @@
             this.btnguardar.IconColor = System.Drawing.Color.White;
             this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 16;
-            this.btnguardar.Location = new System.Drawing.Point(13, 485);
+            this.btnguardar.Location = new System.Drawing.Point(15, 489);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(192, 23);
             this.btnguardar.TabIndex = 43;
@@ -291,7 +291,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(10, 321);
+            this.label8.Location = new System.Drawing.Point(12, 321);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 42;
@@ -301,14 +301,14 @@
             // 
             this.cboestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboestado.FormattingEnabled = true;
-            this.cboestado.Location = new System.Drawing.Point(13, 337);
+            this.cboestado.Location = new System.Drawing.Point(15, 337);
             this.cboestado.Name = "cboestado";
             this.cboestado.Size = new System.Drawing.Size(192, 21);
             this.cboestado.TabIndex = 41;
             // 
             // txtcorreo
             // 
-            this.txtcorreo.Location = new System.Drawing.Point(13, 287);
+            this.txtcorreo.Location = new System.Drawing.Point(15, 287);
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(192, 20);
             this.txtcorreo.TabIndex = 36;
@@ -317,7 +317,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(10, 271);
+            this.label5.Location = new System.Drawing.Point(12, 271);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 35;
@@ -325,21 +325,21 @@
             // 
             // txttelefono
             // 
-            this.txttelefono.Location = new System.Drawing.Point(13, 240);
+            this.txttelefono.Location = new System.Drawing.Point(15, 240);
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(192, 20);
             this.txttelefono.TabIndex = 34;
             // 
             // txtnombrecompleto
             // 
-            this.txtnombrecompleto.Location = new System.Drawing.Point(13, 194);
+            this.txtnombrecompleto.Location = new System.Drawing.Point(15, 194);
             this.txtnombrecompleto.Name = "txtnombrecompleto";
             this.txtnombrecompleto.Size = new System.Drawing.Size(192, 20);
             this.txtnombrecompleto.TabIndex = 33;
             // 
             // txtdocumento
             // 
-            this.txtdocumento.Location = new System.Drawing.Point(13, 146);
+            this.txtdocumento.Location = new System.Drawing.Point(15, 146);
             this.txtdocumento.Name = "txtdocumento";
             this.txtdocumento.Size = new System.Drawing.Size(192, 20);
             this.txtdocumento.TabIndex = 32;
@@ -348,7 +348,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(10, 224);
+            this.label4.Location = new System.Drawing.Point(12, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 31;
@@ -358,7 +358,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(10, 178);
+            this.label3.Location = new System.Drawing.Point(12, 178);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 30;
@@ -368,7 +368,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(10, 130);
+            this.label2.Location = new System.Drawing.Point(12, 130);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 29;

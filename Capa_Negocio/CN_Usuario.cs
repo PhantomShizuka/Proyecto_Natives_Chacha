@@ -11,6 +11,44 @@ namespace Capa_Negocio
     public static class CN_Usuario
     {
         public static List<Usuario> Listar => CD_Usuario.Listar;
+
+        public static int Registrar(Usuario obj, out string mensaje)
+        {
+            if (MensajeError(obj, out mensaje))
+                return 0;
+            else
+                return CD_Usuario.Registrar(obj, out mensaje);
+        }
+
+        public static bool Editar(Usuario obj, out string mensaje)
+        {
+            if (MensajeError(obj, out mensaje))
+                return false;        
+            else
+                return CD_Usuario.Editar(obj, out mensaje);
+        }
+
+        public static bool Eliminar(Usuario obj, out string mensaje)
+        {
+            if (MensajeError(obj, out mensaje))
+                return false;
+            else
+                return CD_Usuario.Eliminar(obj, out mensaje);
+        }
+
+        public static bool MensajeError(Usuario usuario, out string mensaje)
+        {
+            mensaje = string.Empty;
+
+            if (usuario.Contraseña == "")
+                mensaje += "Es necesario la contraseña del empleado\n";
+
+            if (mensaje == string.Empty)
+                return false;
+            else
+                return true;
+        }
+
         public static bool UsuarioValido(string contraseña, string usuario, out Usuario ousuario, out string mensaje)
         {
             bool valido = false;

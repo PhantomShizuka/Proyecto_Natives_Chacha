@@ -144,7 +144,7 @@ namespace Capa_Presentacion
        
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (idactual != 0 && ControlForm.MensajePregunta("¿Desea eliminar el usuario"))
+            if (idactual != 0 && ControlForm.MensajePregunta("¿Esta seguro de eliminar el usuario?"))
             {
                 Empleado empleado = new Empleado() { IdEmpleado = idactual };
 

@@ -57,5 +57,24 @@ namespace Capa_Negocio
             else
                 return true;
         }
+
+        public static List<Empleado> EmpleadoSinUsuario()
+        {
+            List<Empleado> empleados = CD_Empleado.Listar;
+
+            foreach (Usuario usuario in CD_Usuario.Listar)
+            {
+                foreach (Empleado empleado in empleados)
+                {
+                    if (usuario.oEmpleado.IdEmpleado == empleado.IdEmpleado)
+                    {
+                        empleados.Remove(empleado);
+                        break;
+                    } 
+                }                    
+            }
+
+            return empleados;
+        }
     }
 }
