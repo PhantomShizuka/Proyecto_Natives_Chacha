@@ -114,6 +114,7 @@
     <Compile Include="frmUsuario.Designer.cs">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="OpcionCombo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAcercade.resx">
@@ -171,6 +172,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\natives_encabezado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

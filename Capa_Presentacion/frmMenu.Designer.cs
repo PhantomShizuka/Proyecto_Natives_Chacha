@@ -46,7 +46,7 @@
             this.btnUsuarios = new FontAwesome.Sharp.IconMenuItem();
             this.btnEmpleados = new FontAwesome.Sharp.IconMenuItem();
             this.btnAcercade = new FontAwesome.Sharp.IconMenuItem();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlSubMenu = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -203,6 +203,7 @@
             this.btnPedidos.Size = new System.Drawing.Size(193, 49);
             this.btnPedidos.Text = "Pedidos";
             this.btnPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // btnProductos
             // 
@@ -219,6 +220,7 @@
             this.btnProductos.Size = new System.Drawing.Size(193, 49);
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnPromociones
             // 
@@ -235,6 +237,7 @@
             this.btnPromociones.Size = new System.Drawing.Size(193, 49);
             this.btnPromociones.Text = "Promociones";
             this.btnPromociones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPromociones.Click += new System.EventHandler(this.btnPromociones_Click);
             // 
             // btnProveedores
             // 
@@ -251,6 +254,7 @@
             this.btnProveedores.Size = new System.Drawing.Size(193, 49);
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
             // btnInsumos
             // 
@@ -267,6 +271,7 @@
             this.btnInsumos.Size = new System.Drawing.Size(193, 49);
             this.btnInsumos.Text = "Insumos";
             this.btnInsumos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInsumos.Click += new System.EventHandler(this.btnInsumos_Click);
             // 
             // btnUsuarios
             // 
@@ -283,6 +288,7 @@
             this.btnUsuarios.Size = new System.Drawing.Size(193, 49);
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnEmpleados
             // 
@@ -299,6 +305,7 @@
             this.btnEmpleados.Size = new System.Drawing.Size(193, 49);
             this.btnEmpleados.Text = "Empleados";
             this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
             // 
             // btnAcercade
             // 
@@ -315,22 +322,23 @@
             this.btnAcercade.Size = new System.Drawing.Size(193, 49);
             this.btnAcercade.Text = "Acerca de";
             this.btnAcercade.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAcercade.Click += new System.EventHandler(this.btnAcercade_Click);
             // 
-            // panel3
+            // pnlSubMenu
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(160)))), ((int)(((byte)(91)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(200, 75);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1000, 600);
-            this.panel3.TabIndex = 2;
+            this.pnlSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(160)))), ((int)(((byte)(91)))));
+            this.pnlSubMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSubMenu.Location = new System.Drawing.Point(200, 75);
+            this.pnlSubMenu.Name = "pnlSubMenu";
+            this.pnlSubMenu.Size = new System.Drawing.Size(1000, 600);
+            this.pnlSubMenu.TabIndex = 2;
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 675);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnlSubMenu);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -362,7 +370,7 @@
         private FontAwesome.Sharp.IconMenuItem btnEmpleados;
         private FontAwesome.Sharp.IconMenuItem btnAcercade;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlSubMenu;
         private FontAwesome.Sharp.IconButton btnSalir;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblFechaHora;

@@ -27,7 +27,13 @@ namespace Capa_Presentacion
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
             if (CN_Usuario.UsuarioValido(txtContraseña.Text, txtUsuario.Text, out Usuario usuario, out string mensaje))
-                ControlForm.AbrirMenu(this, usuario);
+            {
+                frmMenu menu = new frmMenu(usuario);
+                Hide();
+                menu.ShowDialog();
+                Limpiar();
+                Show();
+            }
             else
                 ControlForm.MensajeError(mensaje);
         }

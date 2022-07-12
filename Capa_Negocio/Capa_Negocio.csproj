@@ -49,6 +49,7 @@
     <Compile Include="CN_DetalleVenta.cs" />
     <Compile Include="CN_Empleado.cs" />
     <Compile Include="CN_Insumo.cs" />
+    <Compile Include="CN_Permiso.cs" />
     <Compile Include="CN_Producto.cs" />
     <Compile Include="CN_Promocion.cs" />
     <Compile Include="CN_Proveedor.cs" />
